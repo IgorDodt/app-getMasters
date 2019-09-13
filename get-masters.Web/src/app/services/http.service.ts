@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IResultHttp } from '../interfaces/IResultHttp';
-import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
+import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { IResultHttp } from '../interfaces/IResultHttp';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +51,7 @@ export class HttpService {
     return new Promise(async (resolve) => {
       try {
         this.spinner.show();
-        const res = await this.http.post(url, model, { headers: header });
+        const res = await this.http.post(url, model, { headers: header }).toPromise();
         resolve({ success: true, data: res, error: undefined })
         this.spinner.hide();
       } catch (error) {

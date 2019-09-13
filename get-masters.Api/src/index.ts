@@ -1,12 +1,11 @@
 import * as bodyParser from "body-parser";
+import * as cors from 'cors';
 import * as express from "express";
 import { Request, Response } from "express";
 import "reflect-metadata";
 import config from "./configuration/config";
 import connection from "./configuration/connection";
-import auth from "./middleware/auth";
 import { Routes } from "./routes";
-import * as cors from 'cors'
 
 // create express app   
 
